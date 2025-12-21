@@ -4,7 +4,7 @@ from flask_cors import CORS
 import pandas as pd
 import numpy as np
 from datetime import datetime, timedelta
-from Ashare import get_price, requests
+from Ashare.Ashare import get_price, requests, get_price_min_tx
 import warnings
 import json
 import threading
@@ -794,6 +794,7 @@ def historical_data(code):
             'success': False,
             'error': str(e)
         }), 500
+
 
 @app.route('/api/health', methods=['GET'])
 def health_check():
